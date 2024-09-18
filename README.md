@@ -1,11 +1,11 @@
-# Shout
+# MMSSH
 
-[![Build Status](https://github.com/jakeheis/Shout/workflows/Test/badge.svg)](https://github.com/jakeheis/Shout/actions)
+[![Build Status](https://github.com/jakeheis/MMSSH/workflows/Test/badge.svg)](https://github.com/jakeheis/MMSSH/actions)
 
 SSH made easy in Swift
 
 ```swift
-import Shout
+import MMSSH
 
 let ssh = try SSH(host: "example.com")
 try ssh.authenticate(username: "user", privateKey: "~/.ssh/id_rsa")
@@ -17,20 +17,20 @@ try ssh.execute("pwd")
 ## Installation
 ### [Ice Package Manager](https://github.com/jakeheis/Ice)
 ```shell
-> ice add jakeheis/Shout
+> ice add jakeheis/MMSSH
 ```
 ### Swift Package Manager
-Add Shout as a dependency to your `Package.swift`:
+Add MMSSH as a dependency to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/jakeheis/Shout", from: "0.5.5")
+    .package(url: "https://github.com/jakeheis/MMSSH", from: "0.5.5")
 ]
 ```
 
 ## Swift 5.2 note
 
-Due to a bug in Swift 5.2, in order to build a project that depends on `Shout` you must explicitly tell SPM where to find the pkgconfig for `libssh2`. If you installed `libssh2` using Homebrew, the instruction looks something like:
+Due to a bug in Swift 5.2, in order to build a project that depends on `MMSSH` you must explicitly tell SPM where to find the pkgconfig for `libssh2`. If you installed `libssh2` using Homebrew, the instruction looks something like:
 
 ```bash
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
@@ -44,7 +44,7 @@ export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 swift package generate-xcodeproj
 ```
 
-See [issue #34](https://github.com/jakeheis/Shout/issues/34) for more details.
+See [issue #34](https://github.com/jakeheis/MMSSH/issues/34) for more details.
 
 ## Usage
 
@@ -112,4 +112,5 @@ try sftp.upload(localURL: myLocalFile, remotePath: "~/cats.png")
 You can instruct the session to request a pty (pseudo terminal) before executing commands:
 ```swift
 session.ptyType = .vanilla
+```
 ```
